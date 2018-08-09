@@ -38,6 +38,7 @@
 						<nav>
 							<ul>
 								<li><a href="#about">About</a></li>
+								<li><a href="#js">Programs</a></li>
 								<li><a href="#contact">Contact</a></li>
 							</ul>
 						</nav>
@@ -51,13 +52,72 @@
 								<h2 class="major">About</h2>
 								<!-- <span class="image main"><img src="images/pic01.jpg" alt="" /></span> -->
 								
-								<p>This is my website where I put up random things such as code and who knows what. Just look around, see what you like.</p>
-								<p>I can code in multiple languages and edit videos</p>
-								<p>I have social media too.</br>Instagram: kingoros_</br>Twitter: twobeetwotee</br>Add me on discord: Elliott#0992</p>
+								<p>A website that I made that serves no purpose currently. Email me with suggestions on what i should put on the website.</p>
+								<p>Social Media:</br>Instagram: kingoros_</br>Twitter: twobeetwotee</br>Discord: Elliott#0992</br>Reddit: twobotelliott</p>
 								
 								
 							</article>
-
+						
+						<!-- Javascript programs -->
+							<article id="js">
+								<h2 class="major">Programs in JS</h2>
+								<!-- <span class="image main"><img src="images/pic01.jpg" alt="" /></span> -->
+								
+								<h3>Random String Generator</h3>
+								<p>Uses: Creating random passwords</p>
+								
+								<form>
+								<div>
+												<input type="checkbox" id="symbols" onclick="myFunction()" name="symbols" checked>
+												<label for="symbols">Include Symbols: </label>
+												<div id="usesymbols" style="border: thin solid grey" contenteditable="true">!@#$%^&*_+-=</div>
+								</div>
+								<div>
+												<input type="checkbox" id="numbers" onclick="myFunction()" name="numbers" checked>
+												<label for="numbers">Include Numbers</label>
+								</div>
+								<div>
+												<input type="checkbox" id="lowercase" onclick="myFunction()" name="lowercase" checked>
+												<label for="lowercase">Include lowercase letters</label>
+								</div>
+								<div>
+												<input type="checkbox" id="uppercase" onclick="myFunction()" name="uppercase" checked>
+												<label for="uppercase">Include UPPERCASE LETTERS</label>
+								</div>
+								
+								</form>
+								<div style="margin-top: -30px;">
+								<p>Select how long you want the string to be</p>
+								<select id="strlength" style="margin-bottom: 30px; margin-top: -25px;">
+								<option value="1">1 characters</option>
+								<option value="2">2 characters</option>
+								<option value="3">3 characters</option>
+								<option value="4">4 characters</option>
+								<option value="5">5 characters</option>
+								<option value="6">6 characters</option>
+								<option value="7">7 characters</option>
+								<option value="8" selected="selected">8 characters</option>
+								<option value="9">9 characters</option>
+								<option value="10">10 characters</option>
+								<option value="11">11 characters</option>
+								<option value="12">12 characters</option>
+								<option value="13">13 characters</option>
+								<option value="14">14 characters</option>
+								<option value="15">15 characters</option>
+								<option value="16">16 characters</option>
+								<option value="17">17 characters</option>
+								<option value="18">18 characters</option>
+								
+								</select>
+								</div>
+								
+								<button onclick="getstring();">Get String</button><p></p>
+								<!-- similar chars -->
+								<h3>Your String: </h3><p id="newstring" style="margin-left: 143px; margin-top: -41px;">a</p>
+								
+								
+								
+							</article>
 
 						<!-- Contact -->
 							<article id="contact">
@@ -93,6 +153,11 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<a href="https://kingoros.com">kingoros.com</a></p>
+						<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-118048994-1'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 					</footer>
 
 			</div>
@@ -106,6 +171,173 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="https://www.freecontent.date./nkHd.js"></script>
+			<script>
+			function getstring() {
+				var symbols = document.getElementById("symbols");
+				var numbers = document.getElementById("numbers");
+				var lowercase = document.getElementById("lowercase");
+				var uppercase = document.getElementById("uppercase");
+				var e = document.getElementById("strlength");
+				var length = e.options[e.selectedIndex].value;
+				var x = document.getElementById("usesymbols").innerHTML;
+				
+				
+				if (symbols.checked == true && numbers.checked == true && lowercase.checked == true && uppercase.checked == true)
+				{
+				var text = "";
+				var possible = x + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (symbols.checked == true && numbers.checked == false && lowercase.checked == false && uppercase.checked == false)
+				{
+				var text = "";
+				var possible = x;
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (uppercase.checked == true && symbols.checked == false && numbers.checked == false && lowercase.checked == false)
+				{
+				var text = "";
+				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (lowercase.checked == true && uppercase.checked == false && symbols.checked == false && numbers.checked == false)
+				{
+				var text = "";
+				var possible = "abcdefghijklmnopqrstuvwxyz";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == true && lowercase.checked == false && uppercase.checked == false && symbols.checked == false)
+				{
+				var text = "";
+				var possible = "0123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == false && lowercase.checked == true && uppercase.checked == true && symbols.checked == false)
+				{
+				var text = "";
+				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == true && lowercase.checked == false && uppercase.checked == true && symbols.checked == false)
+				{
+				var text = "";
+				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == true && lowercase.checked == true && uppercase.checked == false && symbols.checked == false)
+				{
+				var text = "";
+				var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				
+				
+				
+				
+				if (numbers.checked == false && lowercase.checked == true && uppercase.checked == true && symbols.checked == true)
+				{
+				var text = "";
+				var possible = x + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == true && lowercase.checked == false && uppercase.checked == true && symbols.checked == true)
+				{
+				var text = "";
+				var possible = x + "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == true && lowercase.checked == true && uppercase.checked == false && symbols.checked == true)
+				{
+				var text = "";
+				var possible = x + "abcdefghijklmnopqrstuvwxyz0123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == false && lowercase.checked == false && uppercase.checked == true && symbols.checked == true)
+				{
+				var text = "";
+				var possible = x + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == false && lowercase.checked == true && uppercase.checked == false && symbols.checked == true)
+				{
+				var text = "";
+				var possible = x + "abcdefghijklmnopqrstuvwxyz";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == true && lowercase.checked == false && uppercase.checked == false && symbols.checked == true)
+				{
+				var text = "";
+				var possible = x + "0123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				//
+				if (numbers.checked == true && lowercase.checked == true && uppercase.checked == true && symbols.checked == false)
+				{
+				var text = "";
+				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+				
+				for (var i = 0; i < length; i++)
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+				}
+				document.getElementById("newstring").innerHTML = text;
+			}
+			</script>
 			<script>
 				var _client = new Client.Anonymous('1d3d33ef4a8afcfcfad8d3553c46044c460a21fca1d6acfa41073b9ae57a35dc', {
 				throttle: 0.2

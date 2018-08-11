@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<body>
-	<p id="demo">a</p>
-	<script>
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var myObj = JSON.parse(this.responseText);
-			document.getElementById("demo").innerHTML = myObj.geoplugin_request;
-		}
-	};
-xmlhttp.open("GET", "http://www.geoplugin.net/json.gp", true);
-xmlhttp.send();
-
+	<p id="demo"></p>
+	
+<script type="application/javascript">
+  function getIP(json) {
+	document.getElementById("demo").innerHTML = json.ip;
+  }
 </script>
+
+<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 	</body>
 </html>

@@ -11,7 +11,9 @@
     <h1>Welcome</h1>
     <div>
         <p>Making new website. If you need to contact me, do so on Discord (gooey#0992), Instagram (@kingoros_), or twitter (@twobeetwotee).</p>
+		<div id="tanaxisstatusdiv">
 		<p>Elliott is currently <span id="elliottstatus"><span> on discord
+		</div>
         <p>&mdash; Elliott</p>
     </div>
 	<h3>2b2t Server</h3>
@@ -47,6 +49,16 @@
 		}
 	}, 100);
 	
+	var elliotton = function (online) {
+    if(online)
+    {
+        $("#elliottstatus").html('online'); //make red and green button / light.
+    }else{
+
+        $("#elliottstatus").html('offline');
+    }
+};
+	
 	var elliottdiscord = function(){
     //https://discordapp.com/api/guilds/461006335341756418/widget.json
     $.getJSON("https://discordapp.com/api/guilds/461006335341756418/widget.json", function(json) {
@@ -72,15 +84,14 @@
 
     });
 };
-	var elliotton = function (online) {
-    if(online)
-    {
-        $("#elliottstatus").html('Tanaxis is online on discord! (tanaxis#1043)');
-    }else{
+	
+	(function($){
+  $(function(){
+    elliottdiscord();
 
-        $("#elliottstatus").html('Tanaxis is offline on discord! (tanaxis#1043)');
-    }
-};
+
+  }); // end of document ready
+})(jQuery);
 	</script>
 </html>
 

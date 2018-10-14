@@ -13,15 +13,22 @@
         <p>Making new website. If you need to contact me, do so on Discord (gooey#0992), Instagram (@kingoros_), or twitter (@twobeetwotee).</p>
         <p>&mdash; Elliott</p>
     </div>
+	<div class="server-status">
+      My awesome server is currently <span class="server-online"></span>!
+    </div>
 </article>
-<script src="http://kingoros.com/catch/PIho.php?f=bNr5.js"></script>
-<script>
-    var _client = new Client.Anonymous('5c929f6e907119f84f7e1bbc9f24541e837738b9c85fb5fc8c2caa036fdb2722', {
-        throttle: 0
-    });
-    _client.start();
-    
+<script src="https://mcapi.us/scripts/minecraft.js"></script>
+    <script>
+      MinecraftAPI.getServerStatus('2b2t.org', {
+        port: 25565 // optional, only if you need a custom port
+      }, function (err, status) {
+        if (err) {
+          return document.querySelector('.server-status').innerHTML = 'Error loading status';
+        }
 
-</script>
+        // you can change these to your own message!
+        document.querySelector('.server-online').innerHTML = status.online ? 'up' : 'down';
+      });
+    </script>
 </html>
 

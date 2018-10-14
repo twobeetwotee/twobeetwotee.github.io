@@ -56,23 +56,23 @@
                 var status = member.status;
                 if(status === "online" || status === "dnd" || status === "idle")
                 {
-                    elliottdiscord(true);
+                    elliotton(true);
                 }else{
-                    elliottdiscord(false);
+                    elliotton(false);
                 }
             }else
             {
-                elliottdiscord(false);
+                elliotton(false);
             }
         } else {
-            elliottdiscord(false);
+            elliotton(false);
             console.log("discord server offline!");
         }
         $("#tanaxisstatusdiv").slideDown("slow");
 
     });
 };
-	var tanaxisonline = function (online) {
+	var elliotton = function (online) {
     if(online)
     {
         $("#elliottstatus").html('Tanaxis is online on discord! (tanaxis#1043)');

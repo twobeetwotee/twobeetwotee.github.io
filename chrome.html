@@ -48,7 +48,15 @@ function setsize() {
     the_canvas_height = the_canvas_container.clientHeight;
 }
 
+function getOffset(el) {
+  const rect = el.getBoundingClientRect();
+  return {
+    left: rect.left + window.scrollX,
+    top: rect.top + window.scrollY
+  };
+}
 
+var x = getOffset( document.getElementById('pic0') ).left; 
 
 // add an image to somewhere inside the canvas
 function add_image() {
@@ -58,12 +66,6 @@ function add_image() {
 			parseInt(Math.random() * ((the_canvas_width - rnd_pic.width ) * 1.1) + 333*x), 
 					parseInt(Math.random() * ((the_canvas_height - rnd_pic.height) * 1.9)))
 		
-		const rect = el.getBoundingClientRect();
-  return {
-    left: rect.left + window.scrollX,
-    top: rect.top + window.scrollY
-  };
-		var x = getOffset( document.getElementById('pic0') ).left; 
         //parseInt(Math.random() * ((the_canvas_width - rnd_pic.width ) * 1.1)),
         //parseInt(Math.random() * ((the_canvas_height - rnd_pic.height) * 1.9)));
 }

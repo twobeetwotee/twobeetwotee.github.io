@@ -1,28 +1,50 @@
 <!doctype html>
 <title>Elliott's Website</title>
+<link rel="stylesheet" href="assets/css/main.css" />
+
 <style>
   body { background-color: #303030; text-align: center; padding: 150px; }
   h1 { font-size: 50px; }
   body { font: 20px Helvetica, sans-serif; color: #F5F5F5; }
   article { display: block; text-align: left; width: 650px; margin: 0 auto; }
+}
 </style>
 
 <article>
     <h1>Welcome</h1>
     <div>
-        <p>Making new website. If you need to contact me, do so on Discord (gooey#0992), Instagram (@kingoros_), or twitter (@twobeetwotee).</p>
-		<div id="tanaxisstatusdiv">
-		<p>Elliott is currently <span id="elliottstatus"><span> on discord
+        <p>A website that I made. Discord: Elliott#0992</p>
+		<p>I also code discord bots and websites.</p></br>
+		<div id="estatusdiv">
+		<p>Elliott is currently <span id="elliottstatus"><span> on discord</p></br>
 		</div>
-        <p>&mdash; Elliott</p>
+        <p>&mdash; Elliott</p></br>
+		<ul class="icons">
+									<li><a href="https://twitter.com/twobeetwotee" class="icon fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.instagram.com/kingoros_" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/twobeetwotee" class="icon fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+								</ul> </br>
     </div>
 	<h3>2b2t Server</h3>
 	<div class="server-status">
       2b2t is currently <span class="server-online"></span> 
-	  with <span data-playercounter-ip="2b2t.org" id="playercount" >1</span> players. 
-	  Queue is <span id="queue"></span> players.
+	  with <span data-playercounter-ip="2b2t.org" id="playercount" >0</span> players. 
+	  Queue service is comming soon.
     </div>
 </article>
+</br>
+<div style=" border:2px black solid ; width: 650px; height: 300px; margin: auto;" >
+<div style="margin-top: 30px;">
+		<p>Pascal's triangle (i was bored gonna probably remove soon.)</p><br>
+<form>
+  Row to generate<br>
+  <input type="text" name="rowtogenerate" style="width: 400px; margin: auto; margin-top: 10px;" value="15" id="rowtogenerate">
+</form>
+
+<div id="triangle"></div></br>
+<button type="button" onClick="getrow();" style="margin-top: -150px">Generate</button>
+<div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://mcapi.us/scripts/minecraft.js"></script>
     <script>
@@ -80,7 +102,7 @@
             elliotton(false);
             console.log("discord server offline!");
         }
-        $("#tanaxisstatusdiv").slideDown("slow");
+        $("#estatusdiv").slideDown("slow");
 
     });
 };
@@ -92,6 +114,34 @@
 
   }); // end of document ready
 })(jQuery);
+	</script>
+	<script>//pascal's triangle
+	function getrow(){
+		var row = document.getElementById("rowtogenerate").value;
+	
+		function pasc(n){
+		
+	var result = [];
+		result[0] = [1];
+		result[1] = [1,1];
+	for (var row = 2; row < n; row++){
+		result[row] = [1];
+		for (var col = 1; col <= row -1; col++){
+			result[row][col] = result[row-1][col] + result[row-1][col-1];
+			result[row].push(1);
+		}
+	}
+	return result;
+	}
+	
+		for (var i = 0; i < pasc(row).length; i++){
+			//document.write(pasc(row)[i]+"<br>");
+			document.getElementById("triangle").innerHTML = pasc(row)[i]+"<br>";
+			console.log(pasc(row)[i]+"<br>");
+		}
+		
+	}
+	
 	</script>
 </html>
 

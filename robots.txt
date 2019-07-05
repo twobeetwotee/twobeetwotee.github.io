@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /sitemap.htm
-Sitemap: https://2b2t.tk/sitemap.xml

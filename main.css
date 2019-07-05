@@ -1,0 +1,19 @@
+@import bourbon
+
+header
+  height: 100vh
+  background:
+    image: url(bkg.png)
+    size: cover
+    position: center
+  margin-bottom: 50px
+
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  text-align: center
+
+p
+  width: 600px
+  margin: 0 auto 20px

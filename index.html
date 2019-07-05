@@ -1,234 +1,61 @@
+
 <!DOCTYPE html>
 <html>
-<title>Elliott's Website</title>
-<link rel="stylesheet" href="assets/css/main.css" />
-
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  body { background-color: #303030; text-align: center; padding: 150px; }
-  h1 { font-size: 50px; }
-  body { font: 20px Helvetica, sans-serif; color: #F5F5F5; }
-  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
-  .button::-moz-focus-inner{
-  border: 0;
-  padding: 0;
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Verdana", sans-serif;
+  color: #777;
+  overflow: hidden
 }
 
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("bkg.png");
+  height: 100%;
+}
+
+.caption {
+  position: absolute;
+  right: -20%;
+  top: 60%;
+  width: 100%;
+  text-align: left;
+  color: #000;
+}
+
+.caption span.border {
+  color: #fff;
+  padding: 14px;
+  font-size: 48px;
+  letter-spacing: 4px;
+  opacity: 1;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
 </style>
+</head>
+<body>
 
-<article>
-    <h1>Welcome</h1>
-    <div>
- </br>
-    </div>
-	<h3>2b2t Server</h3>
-	<div class="server-status">
-      2b2t is currently <span class="server-online"></span> 
-	  with <span data-playercounter-ip="2b2t.org" id="playercount" >0</span> players. 
-	  Queue service is comming soon.
-    </div>
-</article>
-</br>
-<div style="border:2px black solid; border-radius: 9px; width: 850px; margin: auto;" >
-<div style="margin-top: 30px;">
-		<p>Pascal's triangle (i was bored gonna probably remove soon.)</p><br>
-<form>
-  Row to generate<br>
-  <input type="text" name="rowtogenerate" style="width: 400px; margin: auto;" value="15" id="rowtogenerate">
-</form>
-
-<div id="triangle"></div></br>
-<button type="button" onClick="getrow();" style="margin-top: -100px; margin-bottom: 20px;">Generate</button>
-</div>
-</div>
-<div style="margin: auto;">
-<div style="border:2px black solid; border-radius: 9px; width: 850px; margin: auto; margin-top:50px;">
-<div style="margin-top: 30px; margin-left: 30px; margin-right:30px;">
-<div id="container">
-  <div class="speech">Ceasar Cipher: Put the text to cipher in the input</div>
-  <h4>Shifts the input a specified amount of characters.</h4>
-  <h4>I guess you could decrypt text by shifting by a negative number</h4></br>
-  <div class="input">
-    <form id="form">
-      Text: 
-      <input type="text" id="cypher"/>
-      <br/>
-      Shift:
-      <input type="number" value="7" id="offset" style="height: 40px;"/>
-      <br/>
-      Finish:
-      <input type="text" id="finish"/>     
-    </form>
-	
+<div class="bgimg-1">
+  <div class="caption">
+    <span class="border">Topkek</span><br>
   </div>
 </div>
-</div>
-</div>
-</div>
-<div style="margin: auto;">
-<div style="border:2px black solid; border-radius: 9px; width: 850px; margin: auto; margin-top:50px;">
-<div style="margin-top: 30px; margin-left: 30px; margin-right:30px;">
-<h2>Tell me something</h2>
-<form method="post" action="https://formspree.io/autismserver@gmail.com">
-									<div class="field half first">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field half">
-										<label for="emails">Email</label>
-										<input type="text" name="emails" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4" required></textarea>
-									</div>
-									<ul class="actions">
-										<!--<input type="hidden" name="_next" value="//kingoros.com/thanks.html" />-->
-										<li><input type="submit" value="Send Message" style=""/></li>
-									</ul>
-								</form>
-</div>
-</div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-var alphabet = "abcdefghijklmnopqrstuvwxyz";
-var fullAlphabet = alphabet + alphabet + alphabet;
-
-function runCipher(){
-  var cipherText = $('#cypher').val();
-  var cipherOffset = $('#offset').val();
-  cipherOffset = (cipherOffset % alphabet.length);
-  var cipherFinish = '';
-
-  for(i=0; i<cipherText.length; i++){
-     var letter = cipherText[i];
-     var upper = (letter == letter.toUpperCase());
-     letter = letter.toLowerCase();
-    
-     var index = alphabet.indexOf(letter);
-     if(index == -1){
-       cipherFinish += letter;
-     } else {
-       index = ((index + cipherOffset) + alphabet.length);
-       var nextLetter = fullAlphabet[index];
-       if(upper) nextLetter = nextLetter.toUpperCase();
-       cipherFinish += nextLetter;
-     }
-  }
-    
-  $('#finish').val(cipherFinish);
-}
-
-$(document).ready(function() {
-  $('#cypher').keypress(function(){
-    setTimeout(function(){ runCipher(); },20);
-  });
-  $('#cypher').blur(function(){
-    runCipher();
-  });
-  $('#offset').change(function(){
-    setTimeout(runCipher(),20);
-  });
-  
-});
-</script>
-
-<script src="https://mcapi.us/scripts/minecraft.js"></script>
-    <script>
-      MinecraftAPI.getServerStatus('2b2t.org', {
-        port: 25565 // optional, only if you need a custom port
-      }, function (err, status) {
-        if (err) {
-          return document.querySelector('.server-status').innerHTML = 'Error loading status';
-        }
-		
-		
-        // you can change these to your own message!
-        document.querySelector('.server-online').innerHTML = status.online ? 'online' : 'offline';
-      });
-    </script>
-	<script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter@1.1.1/dist/mc-player-counter.min.js"></script>
-	<script>
-	setInterval(function(){
-			var x = parseInt(document.getElementById('playercount').innerHTML) - (123 + Math.floor(Math.random() * -3000)) ;
-		if (x < 0) {
-			document.getElementById("queue").innerHTML = 0;
-		} else {
-			document.getElementById("queue").innerHTML = x;
-		}
-	}, 100);
-	
-	var elliotton = function (online) {
-    if(online)
-    {
-        $("#elliottstatus").html('online on discord'); //make red and green button / light.
-    }else{
-
-        $("#elliottstatus").html('offline on discord');
-    }
-};
-	
-	var elliottdiscord = function(){
-    //https://discordapp.com/api/guilds/461006335341756418/widget.json
-    $.getJSON("https://discordapp.com/api/guilds/461006335341756418/widget.json", function(json) {
-        if (json.id === "461006335341756418") {
-            let member = json.members.find(o => o.username === "Elliott");
-            if(member){
-                var status = member.status;
-                if(status === "online" || status === "dnd" || status === "idle")
-                {
-                    elliotton(true);
-                }else{
-                    elliotton(false);
-                }
-            }else
-            {
-                elliotton(false);
-            }
-        } else {
-            elliotton(false);
-            console.log("discord server offline!");
-        }
-        $("#estatusdiv").slideDown("slow");
-
-    });
-};
-	
-	(function($){
-  $(function(){
-    elliottdiscord();
-
-
-  }); // end of document ready
-})(jQuery);
-	</script>
-	<script>//pascal's triangle
-	function getrow(){
-		var row = document.getElementById("rowtogenerate").value;
-	
-		function pasc(n){
-		
-	var result = [];
-		result[0] = [1];
-		result[1] = [1,1];
-	for (var row = 2; row < n; row++){
-		result[row] = [1];
-		for (var col = 1; col <= row -1; col++){
-			result[row][col] = result[row-1][col] + result[row-1][col-1];
-			result[row].push(1);
-		}
-	}
-	return result;
-	}
-	
-		for (var i = 0; i < pasc(row).length; i++){
-			//document.write(pasc(row)[i]+"<br>");
-			document.getElementById("triangle").innerHTML = pasc(row)[i]+"<br>";
-			console.log(pasc(row)[i]+"<br>");
-		}
-		
-	}
-	
-	</script>
+</body>
 </html>
-
